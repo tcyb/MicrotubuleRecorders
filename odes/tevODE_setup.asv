@@ -38,9 +38,10 @@ k = [k2, k3, Km_TEV, kcat, Ctrans];
 
 %% Initialize, run ODE solver
 
-% y = [[E], [EC], [I], [A]]'
+% y = [[E], [EC], [I], [ECI], [A]]'
 
 % Initial conditions
+% y0 = [1e-6, 0, 1e-4, 0, 0]'; % concentrations in M
 y0 = [1e-6, 0, 1e-4, 0]';
 timeBounds = [0, max(tca)];
 

@@ -3,14 +3,14 @@ function f = defineCaTEVOde(ca, k, varargin)
 %
 % Generates a f(t,y) for the matlab ODE solvers, parametrized by Ca and the
 % k's. Assumes the simple kinetics model proposed by Namita, tracks the
-% quantities y = [E, EC, I, ECI, A].
+% quantities y = [E, EC, I, A].
 %
 % Inputs:
 % ca - N-length vector, in 1ms increments, representing [Ca2+]
 % k - vector of parameters. Should be in order:
-%       [k2, k3, kf, kr, kcat, Ctrans]
+%       [k2, k3, Km, kcat, Ctrans]
 %       Where: k2 and k3 are kon, koff of CaM
-%              kf and kr are kr, kf of TEV
+%              Km is the Km of TEV
 %              kcat is kcat of TEV
 %              Ctrans is a degradation/diffusion/etc. term for A
 %             
