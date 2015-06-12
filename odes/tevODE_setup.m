@@ -20,9 +20,6 @@ ylabel('[Ca^{2+}] (M)')
 
 %% Define parameters
 
-% Ka = kon/koff
-% Km = (kr + kcat)/kf
-
 % Ka for CaM is ~ 10^6 (per K1 in (Park et al. 2007) and doi:10.1006/abio.2002.5661)
 % Km for Tev is 0.065mM, Kcat for TEV is 0.3 1/s.
 
@@ -30,9 +27,10 @@ Ka_CaM = 1e6;
 Km_TEV = 0.065e-3; % in M
 
 k2 = 1e8; % arbitrary
-k3 = k2 / Ka_CaM; % given k2 and K1 from the paper, this is k3
+k3 = k2 / Ka_CaM; % given k2 and K1 from the paper, k3 = k2/Ka
 kcat = 0.3; % From lit
 Ctrans = 5.4e-8; % M/s (i think) arbitrary, is a degradation/transit term. Assume 0th-order kinetics.
+
 
 k = [k2, k3, Km_TEV, kcat, Ctrans];
 
@@ -47,7 +45,6 @@ timeBounds = [0, max(tca)];
 f = defineCaTEVOde(ca, k);
 
 [T, Y] = ode45(f, timeBounds, y0);
-
 
 %% Plot
 
